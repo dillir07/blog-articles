@@ -1,6 +1,30 @@
+"""
+Travelling Salesman problem (TSP):
+    The travelling salesman problem (TSP) asks the following question:
+    "Given a list of cities and the distances between each pair of cities,
+    what is the shortest possible route that visits each city exactly once
+    and returns to the origin city?".
+For simplicity, here we aren't coming back to origin city.
+
+Genetic Algorithm:
+    genetic algorithm (GA) is a metaheuristic inspired by the process
+    of natural selection that belongs to the larger class
+    of evolutionary algorithms (EA).
+    Genetic algorithms are commonly used to generate high-quality solutions
+    to optimization and search problems by relying on
+    biologically inspired operators such as mutation, crossover and selection. 
+"""
+
+
+"""
+# Generate cities:
+Generates given `number_of_cities randomly`, with in given `map_limit`
+# Arguments:
+- `number_of_cities::Integer`: number of cities to generate
+- `map_limit::Integer=1`: map size limit for cities
+"""
 function generate_cities(number_of_cities, map_limit)
-	println("######################################################")
-	println("Generate Cities Called")
+
 	cities = []
     for city_counter in 1:number_of_cities
         push!(cities, Dict("id" => city_counter, "x" => round(rand() * map_limit), "y" => round(rand() * map_limit)))
