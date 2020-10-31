@@ -33,6 +33,23 @@ function generate_cities(number_of_cities, map_limit)
 	return cities
 end
 
+"""
+# Shuffle chromosome:
+Takes an array of integers and returns in shuffed order
+
+# Arguments:
+- `chromosome` - Array of integers
+```julia
+[1,2,3,4,5]
+```
+
+# Returns:
+- `chromosome` - Shuffled integers
+```julia
+[2,1,4,3,5]
+```
+
+"""
 function shuffle_chromosome(chromosome)
     for i in 1:size(chromosome)[1]
         random_point = rand(1:5, 1)[1]
@@ -42,6 +59,10 @@ function shuffle_chromosome(chromosome)
     return chromosome
 end
 
+"""
+# Calculate distance between two points
+$$ \big distance = √ x_{2}-x_{1}+y_{2}-y_{1} $$
+"""
 function calculate_distance_between_two_points(point1, point2)
     return sqrt((((point2[1] - point1[1]))^2) + (((point2[2] - point1[2]))^2))
 end
