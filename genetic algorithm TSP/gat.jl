@@ -55,18 +55,28 @@ function shuffle_chromosome(chromosome)
         random_point = rand(1:5, 1)[1]
         chromosome[i], chromosome[random_point] = chromosome[random_point], chromosome[i]
     end
+    
 	println("Created chromosome", chromosome)
     return chromosome
 end
 
 """
 # Calculate distance between two points
-$$ \big distance = √ x_{2}-x_{1}+y_{2}-y_{1} $$
+Calculates distance between two points in 2d plane
+
+uses formula 
 """
 function calculate_distance_between_two_points(point1, point2)
     return sqrt((((point2[1] - point1[1]))^2) + (((point2[2] - point1[2]))^2))
 end
 
+"""
+# calculate chromosome travel distance
+calculates total travel distance for given chromosome
+
+Returns:
+- `travel_distance::Float`
+"""
 function calculate_chromosome_travel_distance(chromosome)
     travel_distance = 0
     for geneId in 1:size(chromosome)[1]-1
@@ -78,10 +88,11 @@ function calculate_chromosome_travel_distance(chromosome)
     return travel_distance
 end
 
+"""
+# generate_initial_population
+Generates initial population, by creating give number of size
+"""
 function generate_initial_population(initial_population_size)
-	"""
-	Generates Initial Population
-	"""
 	chromosomes = []
     for population_counter in 1:initial_population_size
         chromosome = shuffle_chromosome(copy(initial_chromosome))
