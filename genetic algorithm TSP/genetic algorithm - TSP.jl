@@ -112,7 +112,7 @@ end
 Here we take two chromosomes and generate new chromosome off of it
 """
 function crossover(parent_one_chromosome, parent_two_chromosome, crossover_point)
-	println("crossover: ", parent_one_chromosome, " ", parent_two_chromosome)
+	# println("crossover: ", parent_one_chromosome, " ", parent_two_chromosome)
 	offspring_part_one = parent_one_chromosome[1:crossover_point]
 	for gene in offspring_part_one
 		if gene in parent_two_chromosome
@@ -128,7 +128,7 @@ end
 Here we mutate the generated chromosome by swapping two elements
 """
 function mutate(offspring)
-	println("mutate: ", offspring)
+	# println("mutate: ", offspring)
 	random_mutation_point1 = rand(1:length(offspring))
     random_mutation_point2 = rand(1:length(offspring))
 	offspring[random_mutation_point1], offspring[random_mutation_point2] = offspring[random_mutation_point2], offspring[random_mutation_point1]
@@ -146,7 +146,12 @@ function evolve(generation_count, offsprings_count, crossover_point)
 			random_parent_two = copy(chromosomes[random_parent_two_id]["chromosome"])
 			offspring = crossover(random_parent_one, random_parent_two, crossover_point)
 			offspring = mutate(offspring)
-			push!(chromosomes, Dict("chromosome" => offspring, "distance" => calculate_chromosome_travel_distance(offspring)))
+            push!(chromosomes, 
+                Dict(
+                    "chromosome" => offspring,
+                    "distance" => calculate_chromosome_travel_distance(offspring)
+                    )
+            )
 		end
 		sort!(chromosomes, by=x -> x["distance"], rev=false)
 		splice!(chromosomes, 6:size(chromosomes)[1])
