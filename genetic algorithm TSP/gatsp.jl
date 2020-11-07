@@ -4,7 +4,6 @@ Travelling Salesman problem (TSP):
     "Given a list of cities and the distances between each pair of cities,
     what is the shortest possible route that visits each city exactly once
     and returns to the origin city?".
-For simplicity, here we aren't coming back to origin city.
 
 Genetic Algorithm:
     genetic algorithm (GA) is a metaheuristic inspired by the process
@@ -85,6 +84,7 @@ Returns:
 """
 function calculate_chromosome_travel_distance(chromosome)
     travel_distance = 0
+    chromosome = vcat(1, chromosome, 1)
     for geneId in 1:length(chromosome) - 1
         point1 = (cities[chromosome[geneId]]["x"], cities[chromosome[geneId]]["y"])
         point2 = (cities[chromosome[geneId + 1]]["x"], cities[chromosome[geneId + 1]]["y"])
@@ -107,6 +107,10 @@ function generate_initial_population(initial_population_size)
 	return chromosomes
 end
 
+"""
+# crossover
+Here we take two chromosomes and generate new chromosome off of it
+"""
 function crossover(parent_one_chromosome, parent_two_chromosome, crossover_point)
 	println("crossover: ", parent_one_chromosome, " ", parent_two_chromosome)
 	offspring_part_one = parent_one_chromosome[1:crossover_point]
@@ -119,42 +123,50 @@ function crossover(parent_one_chromosome, parent_two_chromosome, crossover_point
 	return vcat(offspring_part_one, parent_two_chromosome)
 end
 
+"""
+# mutate
+Here we mutate the generated chromosome by swapping two elements
+"""
 function mutate(offspring)
 	println("mutate: ", offspring)
-	random_mutation_point1 = rand(offspring)
-	random_mutation_point2 = rand(offspring)
+	random_mutation_point1 = rand(1:length(offspring))
+    random_mutation_point2 = rand(1:length(offspring))
 	offspring[random_mutation_point1], offspring[random_mutation_point2] = offspring[random_mutation_point2], offspring[random_mutation_point1]
 	return offspring
 end
 
-	function evolve(generation_count, offsprings_count, crossover_point)
-		for generation in 1:generation_count
-			
-			for offspring_count in 1:offsprings_count
-				println("generation: ", generation, " offspring: ", offspring_count)
-				random_parent_one_id = rand(1:size(chromosomes)[1])
-				random_parent_two_id = rand(1:size(chromosomes)[1])
-				random_parent_one = copy(chromosomes[random_parent_one_id]["chromosome"])
-				random_parent_two = copy(chromosomes[random_parent_two_id]["chromosome"])
-				offspring = crossover(random_parent_one, random_parent_two, crossover_point)
-				offspring = mutate(offspring)
-				push!(chromosomes, Dict("chromosome" => offspring, "distance" => calculate_chromosome_travel_distance(offspring)))
-			end
-			sort!(chromosomes, by=x -> x["distance"], rev=false)
-			println("BEST: ", chromosomes[1])
-			splice!(chromosomes, 6:size(chromosomes)[1])
+function evolve(generation_count, offsprings_count, crossover_point)
+	for generation in 1:generation_count
+		
+		for offspring_count in 1:offsprings_count
+			println("generation: ", generation, " offspring: ", offspring_count)
+			random_parent_one_id = rand(1:size(chromosomes)[1])
+			random_parent_two_id = rand(1:size(chromosomes)[1])
+			random_parent_one = copy(chromosomes[random_parent_one_id]["chromosome"])
+			random_parent_two = copy(chromosomes[random_parent_two_id]["chromosome"])
+			offspring = crossover(random_parent_one, random_parent_two, crossover_point)
+			offspring = mutate(offspring)
+			push!(chromosomes, Dict("chromosome" => offspring, "distance" => calculate_chromosome_travel_distance(offspring)))
 		end
+		sort!(chromosomes, by=x -> x["distance"], rev=false)
+		splice!(chromosomes, 6:size(chromosomes)[1])
 	end
+end
 
 cities = generate_cities(10, 500)
 display(cities)
 println()
 println()
 
-initial_chromosome = [1:length(cities);]
+# here we are creating initial chromosome from 2 because, we will always start from 1
+# and we don't want gene 1 to be shuffled, while randomizing
+
+initial_chromosome = [2:length(cities);]
 println("initial_chromosome:", initial_chromosome)
 println()
 
 chromosomes = generate_initial_population(10)
 evolve(5, 5, 2)
-println("CHOOSEN: ", chromosomes[1])
+println("--------------------------------------------------------")
+println("Optimal route:", vcat(1, chromosomes[1]["chromosome"], 1))
+println("travel_distance:", chromosomes[1]["distance"])
