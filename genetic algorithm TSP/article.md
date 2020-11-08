@@ -1,5 +1,5 @@
 # Genetic Algorithm
-Genetic algorithm (GA) is a type of algorithm inspired by the process of natural section to generate high-quality solutions to problems, which otherwise would be too difficult to solve.
+Genetic algorithm (GA) is a type of algorithm inspired by the process of natural selection to generate high-quality solutions to problems, which otherwise would be too difficult to solve.
 
 # Travelling Salesman Problem
 Travelling Salesman Problem or TSP for short, is a infamous problem where a travelling sales person has to travel various cities with known distance and return to the origin city in the shortest time/path possible.
@@ -233,9 +233,7 @@ println("Optimal route:", vcat(1, chromosomes[1]["chromosome"], 1))
 println("travel_distance:", chromosomes[1]["distance"])
 ```
 
-If we execute, we get the following output, you can see, the result gets improved for each generation.
-
-If you think about it, we just defined the functions and the solution gets generated automatically and for each generation it gets improved.
+If we execute, we get the following output.
 
 # output:
 

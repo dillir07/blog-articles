@@ -297,6 +297,8 @@ travel_distance:1631.463753062698
 
 I have created a TSP-GA playground using Typescript, checkout if you want to playaround: [https://dillir07.github.io/Genetic-Algorithm-TSP/](https://dillir07.github.io/Genetic-Algorithm-TSP/)
 
+![TSP City map](https://dev-to-uploads.s3.amazonaws.com/i/84o5cwq9on4o4z15ostt.png)
+
 ![dillir07 - GA TSP](https://dev-to-uploads.s3.amazonaws.com/i/qyenxsc0uix1db747psc.png)
 
 Julia - Source code is available at [Github](https://github.com/dillir07/blog-articles/blob/main/genetic%20algorithm%20TSP/genetic%20algorithm%20-%20TSP.jl)
