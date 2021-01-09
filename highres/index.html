@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>highres</title>
+
+    <!-- m  -->
+    <meta charset="UTF-8">
+    <meta name="author" content="Dilli Babu R">
+    <meta name="description" content="A script to download hi-resolution images using google search by image feature">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- gp -->
+    <meta itemprop="name" content="highres - an high-resolution Image search & download">
+    <meta itemprop="description" content="A script to download hi-resolution images using google search by image feature">
+    <meta itemprop="image" content="icon.png">
+
+    <!-- t -->
+    <meta name="twitter:card" content="highres - an high-resolution Image search & download">
+    <meta name="twitter:title" content="highres - an high-resolution Image search & download">
+    <meta name="twitter:description" content="A script to download hi-resolution images using google search by image feature">
+    <meta name="twitter:creator" content="@dillir07">
+    <meta name="twitter:image:src" content="icon.png">
+
+    <!-- og  -->
+    <meta property="og:title" content="highres - an high-resolution Image search & download" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://github.com/dillir07/highres" />
+    <meta property="og:site_name" content="highres - an high-resolution Image search & download" />
+    <meta property="og:image" content="icon.png">
+    <meta property="og:description" content="A script to download hi-resolution images using google search by image feature">
+    <link rel="icon" href="icon.png" type="image/x-icon">
+    <link rel="manifest" href="site.webmanifest">
+
+    <!-- thanks to https://www.favicon-generator.org/ -->
+    <link rel="apple-touch-icon" sizes="57x57" href="web/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="web/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="web/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="web/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="web/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="web/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="web/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="web/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="web/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="web/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="web/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="web/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="web/favicon-16x16.png">
+    <link rel="manifest" href="web/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="web/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <style>
+        html,
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0px;
+            padding: 15px;
+        }
+        
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: linear-gradient(90deg, #222831, #022c43);
+                color: rgb(163, 173, 255);
+            }
+            a {
+                color: inherit;
+            }
+        }
+        
+        @media (prefers-color-scheme: light) {
+            body {
+                background: linear-gradient(90deg, #feb5ff, #c4f4ff);
+                color: rgb(71, 3, 71);
+            }
+            a {
+                color: inherit;
+            }
+        }
+        
+        .glass {
+            /* padding-top: 5px;
+            padding-left: 15px; */
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.20);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(20.0px);
+            -webkit-backdrop-filter: blur(20.0px);
+            border-radius: 10px;
+        }
+        
+        a.glass {
+            display: inline-table;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="glass" style="padding-top:10px;padding-bottom: 5px;">
+        <a target="_blank" href="https://github.com/dillir07/highres/graphs/contributors"><img style="border-radius:5px" src="https://img.shields.io/github/contributors/dillir07/highres?style=flat-square" alt="Contributors"></a>
+        <a target="_blank" href="https://github.com/dillir07/highres/network/members"><img style="border-radius:5px" src="https://img.shields.io/github/forks/dillir07/highres?style=flat-square" alt="Forks"></a>
+        <a target="_blank" href="https://github.com/dillir07/highres/stargazers"><img style="border-radius:5px" src="https://img.shields.io/github/stars/dillir07/highres?style=flat-square" alt="Stargazers"></a>
+        <a target="_blank" href="https://github.com/dillir07/highres/issues"><img style="border-radius:5px" src="https://img.shields.io/github/issues/dillir07/highres?style=flat-square" alt="Issues"></a>
+        <a target="_blank" href="https://github.com/dillir07/highres/blob/master/LICENSE"><img style="border-radius:5px" src="https://img.shields.io/github/license/dillir07/highres?style=flat-square" alt="MIT License"></a>
+        <a target="_blank" href="https://linkedin.com/in/dillir07"><img style="border-radius:5px" src="https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&amp;logo=linkedin&amp;colorB=555" alt="LinkedIn"></a>
+    </div>
+
+    <p align="center">
+        <a href="https://github.com/dillir07/highres">
+            <img src="https://dev-to-uploads.s3.amazonaws.com/i/ud9pn9tdo5txv5mvwppo.png" alt="highres Logo" width="200" height="200">
+        </a>
+
+        <h2 align="center" style="color: #76808c;">highres</h2>
+
+        <p align="center">
+            A script to download hi-resolution images using google search by image feature
+            <br />
+            <a href="#usage"><strong>Explore the docs »</strong></a>
+            <br />
+            <br />
+            <a href="#demo">View Demo</a> ·
+            <a href="https://github.com/dillir07/highres/issues">Report Bug</a> ·
+            <a href="https://github.com/dillir07/highres/issues">Request Feature</a>
+        </p>
+    </p>
+
+
+    <!-- TABLE OF CONTENTS -->
+    <div class="glass">
+        <h2 id="table-of-contents">Table of Contents</h2>
+        <ul>
+            <li><a href="#getting-started">Getting Started</a>
+                <ul>
+                    <li><a href="#prerequisites">Prerequisites</a></li>
+                </ul>
+            </li>
+            <li><a href="#usage">Usage</a></li>
+            <li><a href="#license">License</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <br>
+    </div>
+
+    <br>
+    <div class="glass">
+        <!-- GETTING STARTED -->
+        <h2 id="getting-started">Getting Started</h2>
+        <h3 id="prerequisites">Prerequisites</h3>
+        <p>List of items needed for highres to work</p>
+        <ul>
+            <li>A Browser: <a style=" padding: 5px; " target="_blank " href="https://www.google.com/chrome/">Chrome</a>
+                <a style="padding: 5px;" target="_blank" href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>
+                <a style=" padding: 5px; " target="_blank " href="https://www.microsoft.com/edge">Edge</a>
+                <a style="padding: 5px;" target="_blank" href="https://www.apple.com/safari/">Safari</a>
+            </li>
+            <li>Webdriver:
+
+                <a style=" padding: 5px; " target="_blank " href="https://chromedriver.chromium.org/downloads ">Chrome</a>
+                <a style="padding: 5px; " target="_blank " href="https://github.com/mozilla/geckodriver/releases ">Firefox</a>
+                <a style=" padding: 5px; " target="_blank " href="https://developer.microsoft.com/en-us/microsoft-edge/tools/webdriver/ ">Edge</a>
+                <a style="padding: 5px; " target="_blank " href="https://developer.apple.com/documentation/webkit/testing_with_webdriver_in_safari ">Safari</a>
+
+            </li>
+            </li>
+            <li>Added WebDriver's folder path to System Path</li>
+        </ul>
+        <h3 id="installation ">Installation</h3>
+        <ol>
+            <a target="_blank " href="https://pypi.org/project/highres/ ">pip install highres</a>
+        </ol>
+        <h3 id="usage ">Usage</h3>
+        <ol>
+            <p>C:\>highres C:\users\dr\Pictures\example\</p>
+        </ol>
+        <br>
+    </div>
+    <br>
+
+    <div id="demo " class="glass ">
+        <h2>Demo</h2>
+        <a target="_blank " href="https://www.youtube.com/watch?v=GjR0mbHcMSg ">Youtube Video</a>
+    </div>
+    <br>
+
+    <div class="glass ">
+        <h2 id="license ">License</h2>
+        <p>Distributed under the MIT License. See
+            <a target="_blank " href="https://github.com/dillir07/highres/blob/main/LICENSE "><code>LICENSE</code></a> for more information.
+        </p>
+        <br>
+    </div>
+    <br>
+    <!-- CONTACT -->
+    <div class="glass ">
+        <h2 id="contact ">Contact</h2>
+        <div>
+            <a target="_blank " href="https://twitter.com/dillir07 " class="glass " style="padding: 5px; background-color: #1da1f2; color: white; margin:5px ">Twitter</a>
+            <a target="_blank " href="https://github.com/dillir07 " class="glass " style="padding: 5px; background-color: #24292e; color: white; margin:5px ">Github</a>
+            <a target="_blank " href="https://www.linkedin.com/in/dillir07/ " class="glass " style="padding: 5px; background-color: #007bb5; color: white; margin:5px ">LinkedIn</a>
+            <a target="_blank " href="https://dev.to/dillir07 " class="glass " style="padding: 5px; background-color: #000000; color: white; margin:5px ">DEV.TO</a>
+            <a target="_blank " href="https://facebook.com/dillir07 " class="glass " style="padding: 5px; background-color: #3b5998; color: white; margin:5px ">Facebook</a>
+        </div>
+        <br>
+    </div>
+
+</body>
+
+</html>
